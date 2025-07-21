@@ -111,6 +111,62 @@ This will build the project and deploy the `dist` folder to the `gh-pages` branc
 4. Select `gh-pages` branch and `/ (root)` folder
 5. Your app will be available at `https://yourusername.github.io/progress-tracker`
 
+## GitHub Pages Deployment
+
+This project is configured to automatically deploy to GitHub Pages using GitHub Actions.
+
+### Automatic Deployment Setup
+
+1. **Enable GitHub Pages in your repository:**
+   - Go to your repository on GitHub
+   - Click on "Settings" tab
+   - Scroll down to "Pages" section in the left sidebar
+   - Under "Source", select "GitHub Actions"
+
+2. **Push to master branch:**
+
+   ```bash
+   git add .
+   git commit -m "Add deployment configuration"
+   git push origin master
+   ```
+
+3. **Monitor deployment:**
+   - Go to the "Actions" tab in your repository
+   - You'll see the deployment workflow running
+   - Once complete, your site will be available at: `https://[your-username].github.io/[repository-name]`
+
+### Manual Deployment (Alternative)
+
+If you prefer manual deployment, you can use the included deploy script:
+
+```bash
+npm run deploy
+```
+
+### Deployment Features
+
+- **Automatic builds** on every push to master branch
+- **Modern GitHub Pages deployment** using the latest Actions
+- **Concurrent deployment protection** to prevent conflicts
+- **Artifact-based deployment** for better reliability
+- **Build caching** for faster deployments
+
+### Troubleshooting Deployment
+
+1. **Build fails**: Check the Actions tab for error details
+2. **Site not updating**: Clear browser cache or check deployment logs
+3. **Firebase not working**: Ensure Firebase config is properly set in the deployed files
+4. **404 errors**: Make sure `.nojekyll` file is present in the root
+
+### Environment Configuration
+
+For production deployment, you may want to:
+
+1. Set up environment-specific Firebase configurations
+2. Enable Firebase security rules
+3. Configure custom domain (optional)
+
 ## Usage
 
 ### Adding Progress Entries
