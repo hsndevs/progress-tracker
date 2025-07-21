@@ -22,6 +22,7 @@ module.exports = {
 			patterns: [
 				{ from: 'src/css', to: 'css' },
 				{ from: 'src/js/firebase-config.js', to: 'js/firebase-config.js' },
+				{ from: 'src/firebase-env.js', to: 'firebase-env.js' },
 			],
 		}),
 	],
