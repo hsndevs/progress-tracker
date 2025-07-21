@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker - Input Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-chart-line me-2"></i>Progress Tracker</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link active" href="index.html">Input Form</a>
+                <a class="nav-link" href="report.html">Reports</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="card-title mb-0"><i class="fas fa-plus-circle me-2"></i>ব্যক্তিগত তথ্য</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="progressForm">
+                            <div class="mb-3">
+                                <label for="assignee" class="form-label">নাম (Name)</label>
+                                <input type="text" class="form-control" id="assignee" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">ফোন নম্বর (Phone Number)</label>
+                                        <input type="tel" class="form-control" id="phone" required placeholder="০১৭১২৩৪৫৬৭৮">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">ইমেইল (Email)</label>
+                                        <input type="email" class="form-control" id="email" required placeholder="example@email.com">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Islamic Activities Fields -->
+                            <div class="card mb-4">
+                                <div class="card-header bg-secondary text-white">
+                                    <h5 class="mb-0">মাসিক কার্যক্রম</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Month Selection -->
+                                    <div class="mb-4">
+                                        <label for="monthName" class="form-label">মাসের নাম (Month Name)</label>
+                                        <select class="form-control" id="monthName" required>
+                                            <option value="">মাস নির্বাচন করুন (Select Month)</option>
+                                            <option value="জানুয়ারি">জানুয়ারি (January)</option>
+                                            <option value="ফেব্রুয়ারি">ফেব্রুয়ারি (February)</option>
+                                            <option value="মার্চ">মার্চ (March)</option>
+                                            <option value="এপ্রিল">এপ্রিল (April)</option>
+                                            <option value="মে">মে (May)</option>
+                                            <option value="জুন">জুন (June)</option>
+                                            <option value="জুলাই">জুলাই (July)</option>
+                                            <option value="আগস্ট">আগস্ট (August)</option>
+                                            <option value="সেপ্টেম্বর">সেপ্টেম্বর (September)</option>
+                                            <option value="অক্টোবর">অক্টোবর (October)</option>
+                                            <option value="নভেম্বর">নভেম্বর (November)</option>
+                                            <option value="ডিসেম্বর">ডিসেম্বর (December)</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="quranStudy" class="form-label">কুরআন অধ্যয়ন</label>
+                                                <input type="text" class="form-control" id="quranStudy" placeholder="যেমন: ২ পারা তিলাওয়াত">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="hadithStudy" class="form-label">হাদীস অধ্যয়ন</label>
+                                                <input type="text" class="form-control" id="hadithStudy" placeholder="যেমন: ১০টি হাদীস">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="islamicLiterature" class="form-label">ইসলামী সাহিত্য</label>
+                                                <input type="text" class="form-control" id="islamicLiterature" placeholder="যেমন: ১ ঘন্টা পড়া">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="congregationalPrayer" class="form-label">জামায়াতে নামাজ</label>
+                                                <input type="text" class="form-control" id="congregationalPrayer" placeholder="যেমন: ৫ ওয়াক্ত">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="dawahTarget" class="form-label">দাওয়াতী টার্গেট সাক্ষাত</label>
+                                                <input type="text" class="form-control" id="dawahTarget" placeholder="যেমন: ৩ জন ব্যক্তি">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="workerTarget" class="form-label">কর্মী টার্গেট সাক্ষাত</label>
+                                                <input type="text" class="form-control" id="workerTarget" placeholder="যেমন: ৫ জন কর্মী">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="rukonTarget" class="form-label">রুকন টার্গেট সাক্ষাত</label>
+                                                <input type="text" class="form-control" id="rukonTarget" placeholder="যেমন: ২ জন রুকন">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="workerContact" class="form-label">কর্মী যোগাযোগ</label>
+                                                <input type="text" class="form-control" id="workerContact" placeholder="যেমন: ১০ জন কর্মী">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="bookDistribution" class="form-label">বই বিলি</label>
+                                                <input type="text" class="form-control" id="bookDistribution" placeholder="যেমন: ১৫টি বই">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="familyMeeting" class="form-label">পারিবারিক বৈঠক</label>
+                                                <input type="text" class="form-control" id="familyMeeting" placeholder="যেমন: ১টি বৈঠক">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="timeDonation" class="form-label">সময় দান</label>
+                                                <input type="text" class="form-control" id="timeDonation" placeholder="যেমন: ৫ ঘন্টা">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="reportKeeping" class="form-label">রিপোর্ট রাখা</label>
+                                                <input type="text" class="form-control" id="reportKeeping" placeholder="যেমন: দৈনিক">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="selfCriticism" class="form-label">আত্ম সমালোচনা</label>
+                                                <input type="text" class="form-control" id="selfCriticism" placeholder="যেমন: সাপ্তাহিক">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="donationDate" class="form-label">ইয়ানত দানের তারিখ</label>
+                                                <input type="text" class="form-control" id="donationDate" placeholder="যেমন: মাসিক ১০০ টাকা">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="socialWork" class="form-label">সামাজিক কাজ</label>
+                                                <input type="text" class="form-control" id="socialWork" placeholder="যেমন: ২ ঘন্টা সেবা">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">অতিরিক্ত মন্তব্য (Additional Notes)</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="অন্য কোন বিশেষ কাজ বা মন্তব্য..."></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-save me-2"></i>Save Progress
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="fas fa-check-circle me-2"></i>Success</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="successMessage">
+                        Progress entry has been saved successfully!
+                    </div>
+                    <div id="modeIndicator" class="mt-2 small text-muted"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="d-none">
+        <div class="spinner-overlay">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/bundle.js"></script>
+</body>
+</html>
