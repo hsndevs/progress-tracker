@@ -82,6 +82,12 @@ function initializeApplication() {
 function initializeInputForm() {
 	const form = document.getElementById('progressForm');
 
+	// Check if we're on the correct page
+	if (!form) {
+		console.warn('Progress form not found. Skipping input form initialization.');
+		return;
+	}
+
 	// Form submission
 	form.addEventListener('submit', async function (e) {
 		e.preventDefault();
@@ -178,6 +184,12 @@ async function saveProgressEntry() {
 	const loadingSpinner = document.getElementById('loadingSpinner');
 	const submitButton = document.querySelector('#progressForm button[type="submit"]');
 
+	// Check if required elements exist
+	if (!loadingSpinner) {
+		console.error('Loading spinner element not found');
+		return;
+	}
+
 	// Check if already in progress using the loading spinner state
 	if (!loadingSpinner.classList.contains('d-none')) {
 		console.log('Form submission already in progress, ignoring duplicate request');
@@ -192,33 +204,39 @@ async function saveProgressEntry() {
 	loadingSpinner.classList.remove('d-none');
 
 	try {
+		// Helper function to safely get element value
+		function getElementValue(id) {
+			const element = document.getElementById(id);
+			return element ? element.value : '';
+		}
+
 		// Get today's date in YYYY-MM-DD format
 		const today = new Date().toISOString().split('T')[0];
 
 		const formData = {
-			assignee: document.getElementById('assignee').value,
-			phone: document.getElementById('phone').value,
-			email: document.getElementById('email').value,
-			monthName: document.getElementById('monthName').value,
+			assignee: getElementValue('assignee'),
+			phone: getElementValue('phone'),
+			email: getElementValue('email'),
+			monthName: getElementValue('monthName'),
 			startDate: today, // Automatically set to today
 			dueDate: today,   // Automatically set to today
 			// Islamic Activities
-			quranStudy: document.getElementById('quranStudy').value,
-			hadithStudy: document.getElementById('hadithStudy').value,
-			islamicLiterature: document.getElementById('islamicLiterature').value,
-			congregationalPrayer: document.getElementById('congregationalPrayer').value,
-			dawahTarget: document.getElementById('dawahTarget').value,
-			workerTarget: document.getElementById('workerTarget').value,
-			rukonTarget: document.getElementById('rukonTarget').value,
-			workerContact: document.getElementById('workerContact').value,
-			bookDistribution: document.getElementById('bookDistribution').value,
-			familyMeeting: document.getElementById('familyMeeting').value,
-			timeDonation: document.getElementById('timeDonation').value,
-			reportKeeping: document.getElementById('reportKeeping').value,
-			selfCriticism: document.getElementById('selfCriticism').value,
-			donationDate: document.getElementById('donationDate').value,
-			socialWork: document.getElementById('socialWork').value,
-			description: document.getElementById('description').value,
+			quranStudy: getElementValue('quranStudy'),
+			hadithStudy: getElementValue('hadithStudy'),
+			islamicLiterature: getElementValue('islamicLiterature'),
+			congregationalPrayer: getElementValue('congregationalPrayer'),
+			dawahTarget: getElementValue('dawahTarget'),
+			workerTarget: getElementValue('workerTarget'),
+			rukonTarget: getElementValue('rukonTarget'),
+			workerContact: getElementValue('workerContact'),
+			bookDistribution: getElementValue('bookDistribution'),
+			familyMeeting: getElementValue('familyMeeting'),
+			timeDonation: getElementValue('timeDonation'),
+			reportKeeping: getElementValue('reportKeeping'),
+			selfCriticism: getElementValue('selfCriticism'),
+			donationDate: getElementValue('donationDate'),
+			socialWork: getElementValue('socialWork'),
+			description: getElementValue('description'),
 			createdAt: new Date().toISOString(),
 			updatedAt: new Date().toISOString()
 		};
@@ -299,16 +317,26 @@ async function saveProgressEntry() {
 
 // Report Page Functions
 function initializeReportPage() {
+	// Check if we're on the correct page
+	const progressTable = document.getElementById('progressTable');
+	const refreshButton = document.getElementById('refreshData');
+	const saveEditButton = document.getElementById('saveEdit');
+
+	if (!progressTable || !refreshButton || !saveEditButton) {
+		console.warn('Report page elements not found. Skipping report page initialization.');
+		return;
+	}
+
 	initializeDataTable();
 	loadProgressData();
 
 	// Refresh button
-	document.getElementById('refreshData').addEventListener('click', function () {
+	refreshButton.addEventListener('click', function () {
 		loadProgressData();
 	});
 
 	// Edit modal events
-	document.getElementById('saveEdit').addEventListener('click', saveEditedEntry);
+	saveEditButton.addEventListener('click', saveEditedEntry);
 
 	// Add event listener to edit modal for backdrop cleanup
 	const editModal = document.getElementById('editModal');
