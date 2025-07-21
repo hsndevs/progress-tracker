@@ -32,8 +32,15 @@ jobs:
       - name: Clear npm cache
         run: npm cache clean --force
 
+      - name: Delete node_modules and package-lock.json
+        run: |
+          rm -rf node_modules package-lock.json
+
       - name: Install dependencies
         run: npm install --legacy-peer-deps
+
+      - name: Install schema-utils explicitly
+        run: npm install schema-utils --save-dev --legacy-peer-deps
 
       - name: Verify webpack installation
         run: npx webpack --version
